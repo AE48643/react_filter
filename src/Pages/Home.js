@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 
-export const Grad = () => {
+export const Home = () => {
   // Declare state variables
   const [filters, setFilters] = useState(Array(3).fill(''));
 
   const [data, setData] = useState([
-    ['Name', 'Country', 'Start', 'Location'],
-    ['Eli', 'Germany', '11:40AM ', 'CL202'],
-    ['Smith', 'Sweden', '2:30PM', 'GR010'],
-    ['Job', 'UK', '', 'ARR'],
-    ['Donuts', '', '', 'Online'],
+    ['Name', 'Country', 'Start'],
+    ['Eli', 'Germany', '11:40AM '],
+    ['Smith', 'Sweden', '2:30PM'],
+    ['Job', 'UK', ''],
+    ['Donuts', '', ''],
   ]);
 
-  const handleInputChange = (event, index) => {
+/*  const handleInputChange = (event, index) => {
     const newFilters = [...filters];
     newFilters[index] = event.target.value.toUpperCase();
     setFilters(newFilters);
@@ -42,17 +42,9 @@ export const Grad = () => {
     filterTable();
   }, [filters]);
 
+  */
   return (
     <div>
-      {data[0].map((column, index) => (
-        <input
-          key={index}
-          type="text"
-          value={filters[index]}
-          onChange={(event) => handleInputChange(event, index)}
-          placeholder={`Search for ${column.toLowerCase()}..`}
-        />
-      ))}
 
       <table id="myTable">
         <thead>
