@@ -1,0 +1,40 @@
+/* Container styles */
+.container {
+  width: 100%; /* Make the container expand to the full width */
+  max-width: 100%; /* Limit the maximum width */
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: auto; /* Add horizontal and vertical scrollbar if content overflows */
+  background-image: url(https://www.trnty.edu/wp-content/uploads/2023/10/troll-HAN06197.jpg);
+  background-size: cover;
+  background-attachment: fixed; /* Make the background image fixed */
+  background-position: center;
+}
+
+/* Table styles */
+.container table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.9);
+  table-layout: fixed; /* Fixed table layout to ensure columns are evenly spaced */
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+  width: auto; /* Allow columns to adjust their width based on content */
+  white-space: nowrap; /* Prevent wrapping of text */
+  overflow: hidden; /* Hide overflow content */
+  text-overflow: ellipsis; /* Show ellipsis for overflow content */
+}
+
+/* Style for the input cells */
+.container th input {
+  width: 100%; /* Fill the entire width of the cell */
+  box-sizing: border-box; /* Include padding and border in the width */
+  padding: 8px; /* Add some padding */
+}

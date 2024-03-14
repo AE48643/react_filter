@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 export const Home = () => {
   // Declare state variables
-  const [filters, setFilters] = useState(Array(3).fill(''));
+  // const [filters, setFilters] = useState(Array(3).fill(''));
 
   const [data, setData] = useState([
     ['Name', 'Country', 'Start'],
