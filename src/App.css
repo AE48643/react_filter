@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  overflow: auto; /* add extra space if the content inside overflow */
+  background-size: cover;
+  background-attachment: fixed; /* Make the background image fixed */
+  background-position: center;
 }
 
 .App-logo {
@@ -35,4 +39,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.AppMenuBar {
+  background-color: #1a237e; /* Dark blue background color */
+  margin: 100%;
+  padding: 10px; /* Add padding for better appearance */
+  width: 100%;
+  max-width: 100%;
+}
+
+.App .buttom {
+    margin: 10px;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
 }

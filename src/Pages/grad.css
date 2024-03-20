@@ -2,16 +2,24 @@
 .container {
   width: 100%; /* Make the container expand to the full width */
   max-width: 100%; /* Limit the maximum width */
+  margin-top: 100px;
   margin: 50px auto;
+  padding-top: 100px;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: auto; /* Add horizontal and vertical scrollbar if content overflows */
-  background-image: url(https://www.trnty.edu/wp-content/uploads/2023/10/troll-HAN06197.jpg);
+  overflow: visible; 
+  background-image: url(https://www.trnty.edu/wp-content/uploads/2020/03/trinity-aerial-0044.jpg);
   background-size: cover;
   background-attachment: fixed; /* Make the background image fixed */
   background-position: center;
+
+}
+
+.table-container {
+  height: 1000px; /* Set a fixed height for the table container */
+  overflow-y: auto; /* Allow vertical scrolling if the content exceeds the container height */
 }
 
 /* Table styles */
@@ -20,6 +28,7 @@
   border-collapse: collapse;
   background-color: rgba(255, 255, 255, 0.9);
   table-layout: fixed; /* Fixed table layout to ensure columns are evenly spaced */
+
 }
 
 th, td {

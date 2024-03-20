@@ -1,15 +1,46 @@
 import React, { useState, useEffect } from "react";
+import './filter.css';
 
 export const Home = () => {
   // Declare state variables
   // const [filters, setFilters] = useState(Array(3).fill(''));
-
+  
   const [data, setData] = useState([
-    ['Name', 'Country', 'Start'],
-    ['Eli', 'Germany', '11:40AM '],
-    ['Smith', 'Sweden', '2:30PM'],
-    ['Job', 'UK', ''],
-    ['Donuts', '', ''],
+    ['Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
+    ['Joan', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
+    ['Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
+    ['Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
+    ['Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'], 
+    ['Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
+    ['Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
+    ['Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
+    ['Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
+    ['Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'],
+    ['Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
+    ['Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
+    ['Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
+    ['Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
+    ['Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'],
+    ['Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
+    ['Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
+    ['Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
+    ['Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
+    ['Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'],
+    ['Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
+    ['Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
+    ['Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
+    ['Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
+    ['Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'],
+    ['Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
+    ['Ruth', 'Ethiopia', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
+    ['Yari', 'Mexico', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
+    ['Jacob', 'US', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
+    ['Hyun', 'Korea', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'],
+    ['Gun', 'Korea', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
+    ['Izzy', 'US', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
+    ['Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
+    ['Sharon', 'Germany', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
+    ['Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'],
   ]);
 
 /*  const handleInputChange = (event, index) => {
@@ -44,27 +75,29 @@ export const Home = () => {
 
   */
   return (
-    <div>
+    <div className="container">
+      <img className="logo" src="https://trollsathletics.com/images/logos/site/site.png" alt="Logo" />
 
-      <table id="myTable">
-        <thead>
-          <tr>
-            {data[0].map((cell, i)=> (
-              <th style={{ width: '60%' }} key={i}>{cell}</th>
-            ))}
-          </tr>
-        </thead>
-
-        <tbody>
-          {data.slice(1).map((row, rowIndex) => (
-            <tr key={rowIndex} style={{ display: 'table-row' }}>
-              {row.map((cell, cellIndex) => (
-                <td key={cellIndex}>{cell}</td>
+      <div className="table-container">
+        <table id="myTable">
+          <thead>
+            <tr>
+              {data[0].map((cell, i)=> (
+                <th key={i}>{cell}</th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {data.slice(1).map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                {row.map((cell, cellIndex) => (
+                  <td key={cellIndex}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

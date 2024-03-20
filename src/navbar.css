@@ -1,0 +1,24 @@
+/* navbar.css */
+
+nav {
+    background-color: #1a237e; /* Dark blue background color */
+    padding: 10px; /* Add padding for better appearance */
+  }
+  
+  select {
+    background-color: #3949ab; /* Dark blue select background color */
+    color: white; /* White text color */
+    padding: 8px 16px; /* Add padding to the select */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Add border radius for a nicer look */
+    cursor: pointer; /* Show pointer cursor on hover */
+  }
+  
+  select:focus {
+    outline: none; /* Remove focus outline */
+  }
+  
+  option {
+    background-color: #1a237e; /* Dark blue option background color */
+  }
+  
