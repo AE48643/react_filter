@@ -48,3 +48,15 @@
     padding: 8px; /* Add some padding */
   }
   
+  .table-container .myTable th {
+    background-color: #73a7ff; /* Dark blue */
+    color: white;
+  }
+  
+  tr {
+    background-color: #dbe9ff; /* Light blue */
+  }
+  
+  tr:hover {
+    background-color: #b0c4de; /* Lighter shade of blue for hover effect */
+  }

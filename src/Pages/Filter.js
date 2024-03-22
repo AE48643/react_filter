@@ -70,7 +70,7 @@ export const Filter =(props) => {
             </tr>
           </thead>
         </table>
-        <table id="myTable">
+        <table id="myTable" className="myTable">
           <thead>
             <tr>
               {data[0].map((cell, i)=> (

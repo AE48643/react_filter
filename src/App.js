@@ -48,8 +48,8 @@ function App() {
           <Route path='*' element={<h1>Page Not Found</h1>} />
         </Routes>
       </div>
-      <div className='bottom'>
-        <input placeholder="Hello" />
+      <div className='buttom'>
+        <a href="https://www.trnty.edu/" target = "_blank"><img src="https://i.vimeocdn.com/portrait/30721683_640x640" alt ="Trinity logo" height = "150px" width = "150px"/></a>
       </div>
     </div>
   );

@@ -1,12 +1,14 @@
 /* navbar.css */
 
 nav {
-    background-color: #1a237e; /* Dark blue background color */
+    background-color: #304064; /* Dark blue background color */
     padding: 10px; /* Add padding for better appearance */
+    overflow: visible;
+    width: 102%
   }
   
   select {
-    background-color: #3949ab; /* Dark blue select background color */
+    background-color: #304064; /* Dark blue select background color */
     color: white; /* White text color */
     padding: 8px 16px; /* Add padding to the select */
     border: none; /* Remove default border */
@@ -19,6 +21,6 @@ nav {
   }
   
   option {
-    background-color: #1a237e; /* Dark blue option background color */
+    background-color: #304064; /* Dark blue option background color */
   }
   
