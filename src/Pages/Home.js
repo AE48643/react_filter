@@ -1,103 +1,78 @@
 import React, { useState, useEffect } from "react";
-import './filter.css';
+import './home.css'; // assuming you have your CSS file properly linked
+import Courses from './Courses.json';
 
 export const Home = () => {
-  // Declare state variables
-  // const [filters, setFilters] = useState(Array(3).fill(''));
-  
-  const [data, setData] = useState([
-    ['Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
-    ['Joan', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
-    ['Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
-    ['Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
-    ['Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'], 
-    ['Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
-    ['Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
-    ['Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
-    ['Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
-    ['Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'],
-    ['Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
-    ['Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
-    ['Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
-    ['Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
-    ['Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'],
-    ['Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
-    ['Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
-    ['Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
-    ['Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
-    ['Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'],
-    ['Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
-    ['Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
-    ['Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
-    ['Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
-    ['Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'],
-    ['Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
-    ['Ruth', 'Ethiopia', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
-    ['Yari', 'Mexico', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
-    ['Jacob', 'US', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
-    ['Hyun', 'Korea', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'],
-    ['Gun', 'Korea', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location', 'Name', 'Country', 'Start', 'Location', 'Start', 'Location'],
-    ['Izzy', 'US', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202', 'Eli', 'Germany', '11:40AM ', 'CL202', '11:40AM ', 'CL202' ],
-    ['Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010', 'Smith', 'Sweden', '2:30PM', 'GR010', '2:30PM', 'GR010' ],
-    ['Sharon', 'Germany', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR', 'Job', 'UK', '', 'ARR', '', 'ARR' ],
-    ['Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online', 'Donuts', '', '', 'Online', '', 'Online'],
-  ]);
-
-/*  const handleInputChange = (event, index) => {
-    const newFilters = [...filters];
-    newFilters[index] = event.target.value.toUpperCase();
-    setFilters(newFilters);
-  };
-
-  const filterTable = () => {
-    const table = document.getElementById("myTable");
-    const tr = table.getElementsByTagName("tr");
-    const visibleRows = Array(tr.length).fill(true); // Array to keep track of visible rows
-
-    // Apply filters on all columns
-    filters.forEach((filterValue, columnIndex) => {
-      for (let i = 1; i < tr.length; i++) { // Start from 1 to skip the header row
-        const td = tr[i].getElementsByTagName("td")[columnIndex];
-        if (td) {
-          const txtValue = td.textContent || td.innerText;
-          const isVisible = visibleRows[i] && (txtValue.toUpperCase().includes(filterValue) || filterValue === '');
-          visibleRows[i] = isVisible;
-          tr[i].style.display = isVisible ? "" : "none";
-        }
-      }
-    });
-  };
+  const [datas, setDatas] = useState([]);
+  const [titles, setTitles] = useState([])
 
   useEffect(() => {
-    // Use effect to handle filtering when the filter state changes
-    filterTable();
-  }, [filters]);
+    setDatas(Courses);
+    
+    if (Courses.length === 0) {
+      return; // Exiting if Courses is empty to avoid null reference error
+    }
+    
+    // Get all unique keys from the data objects
+    const allKeys = Courses.reduce((keys , course) => {
+      Object.keys(course).forEach(key => {
+        if (!keys.includes(key) && key !== 'times') {
+          keys.push(key);
+        }
+      });
+      return keys;
+    }, []);
+    
+    setTitles(allKeys);
+  }, []); // This will execute only once when the component mounts
 
-  */
+  // Check if datas is empty before rendering
+  if (datas.length === 0) {
+    return <div>Loading...</div>;
+  }
+  
   return (
-    <div className="container">
-      <img className="logo" src="https://trollsathletics.com/images/logos/site/site.png" alt="Logo" />
-
-      <div className="table-container">
-        <table id="myTable">
-          <thead>
-            <tr>
-              {data[0].map((cell, i)=> (
-                <th key={i}>{cell}</th>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            {/* Loop through the keys to get table headers */}
+            {titles.map((title, id) => (
+              <th key={id}>{title}</th>  
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {datas.map((data, id) => (
+            <tr key={id}>
+              {/* Loop through the values of each data object to get table cells */}
+              {titles.map((title, index) => (
+                <td key={index}>
+                  {/* If the value is an array (like 'times'), format it */}
+                  {Array.isArray(data[title]) ? (
+                    data[title].map((item, itemIndex) => (
+                      <div key={itemIndex}>
+                        {/* If the item is an object, display its key-value pairs */}
+                        {typeof item === 'object' ? (
+                          Object.entries(item).map(([key, value], entryIndex) => (
+                            <p key={entryIndex}><strong>{key}</strong>: {value}</p>
+                          ))
+                        ) : (
+                          // Otherwise, simply display the value
+                          item
+                        )}
+                      </div>
+                    ))
+                  ) : (
+                    // If not an array, simply display the value
+                    data[title]
+                  )}
+                </td>
               ))}
             </tr>
-          </thead>
-          <tbody>
-            {data.slice(1).map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {row.map((cell, cellIndex) => (
-                  <td key={cellIndex}>{cell}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

@@ -10,12 +10,14 @@ import { Home } from './Pages/Home';
 function App() {
   const location = useLocation();
   const [backgroundImage, setBackgroundImage] = useState('');
+  const [zoomOut, setZoomOut] = useState(true);
 
   // Function to set background image based on route
   const setBackground = (pathname) => {
     switch (pathname) {
-      case '/':
-        setBackgroundImage('https://www.trnty.edu/wp-content/uploads/2023/10/troll-HAN06197.jpg');
+      /* case '/':
+        setBackgroundImage('https://www.trnty.edu/wp-content/uploads/2020/03/trinity-aerial-0044.jpg');
+        break; */
       case '/grad':
         setBackgroundImage('https://www.trnty.edu/wp-content/uploads/2023/10/troll-HAN06197.jpg');
         break;
@@ -25,19 +27,24 @@ function App() {
       case '/tracs':
         setBackgroundImage('https://www.trnty.edu/wp-content/uploads/2019/02/commencement-DSC02734-1.jpg');
         break;
-      default:
+     /* default:
         setBackgroundImage('https://www.trnty.edu/wp-content/uploads/2023/10/troll-HAN06197.jpg');
-        break;
-    }
+        break; */
+    } 
   };
 
   // Call setBackground when location changes
   useEffect(() => {
     setBackground(location.pathname);
+    // Remove zoom-out class after animation completes
+    const timeout = setTimeout(() => {
+      setZoomOut(false);
+    }, 100); // Assuming the animation duration is 5 seconds
+    return () => clearTimeout(timeout);
   }, [location.pathname]);
 
   return (
-    <div className='App' style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <div className={`App ${zoomOut ? 'zoom-out' : ''}`} style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className='MenuBar'>
         <Navbar />
         <Routes>
@@ -49,7 +56,7 @@ function App() {
         </Routes>
       </div>
       <div className='buttom'>
-        <a href="https://www.trnty.edu/" target = "_blank"><img src="https://i.vimeocdn.com/portrait/30721683_640x640" alt ="Trinity logo" height = "150px" width = "150px"/></a>
+        <a href="https://www.trnty.edu/" target="_blank"><img src="https://i.vimeocdn.com/portrait/30721683_640x640" alt="Trinity logo" height="150px" width="150px" /></a>
       </div>
     </div>
   );

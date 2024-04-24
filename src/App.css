@@ -1,57 +1,23 @@
+/* General styles */
+
 .App {
   text-align: center;
-  overflow: auto; /* add extra space if the content inside overflow */
   background-size: cover;
   background-attachment: fixed; /* Make the background image fixed */
   background-position: center;
+  min-height: 100vh; /* Set a minimum height to ensure it covers the entire viewport */
+  overflow: auto; /* auto fit */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* Menu bar */
 .AppMenuBar {
   background-color: #304064; /* Dark blue background color */
-  margin: 100%;
   padding: 10px; /* Add padding for better appearance */
-  width: 102%;
-  /*max-width: 100%;*/
-  overflow: visible;
+  width: 100%;
 }
 
+/* Bottom section */
 .App .buttom {
-  
     margin: 0px;
     padding: 10px;
     background-color: #304064;
@@ -60,4 +26,15 @@
     /*max-width: 100%;*/
     height: 150px;
     max-height: 100%;
+
+}
+
+/* Zoom-out effect */
+.zoom-out {
+  transform: scale(1);
+  opacity: 0;
+}
+
+.App-link {
+  color: #61dafb;
 }
