@@ -6,15 +6,17 @@ export const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav>
-      <select value={location.pathname} onChange={(e) => { window.location.href = e.target.value; }}>
-        <option value="/">Home</option>
-        <optgroup label="Programs">
-          <option value="/grad">Grad</option>
-          <option value="/main">Main</option>
-          <option value="/tracs">Tracs</option>
-        </optgroup>
-      </select>
-    </nav>
+    <div className='middle'>
+      <nav>
+        <select value={location.pathname} onChange={(e) => { window.location.href = e.target.value; }}>
+          <option value="/">Home</option>
+          <optgroup label="Programs">
+            <option value="/grad">Grad</option>
+            <option value="/main">Main</option>
+            <option value="/tracs">Tracs</option>
+          </optgroup>
+        </select>
+      </nav>
+      </div>
   );
 };

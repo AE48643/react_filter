@@ -15,9 +15,9 @@ function App() {
   // Function to set background image based on route
   const setBackground = (pathname) => {
     switch (pathname) {
-      /* case '/':
+     case '/':
         setBackgroundImage('https://www.trnty.edu/wp-content/uploads/2020/03/trinity-aerial-0044.jpg');
-        break; */
+        break; 
       case '/grad':
         setBackgroundImage('https://www.trnty.edu/wp-content/uploads/2023/10/troll-HAN06197.jpg');
         break;
@@ -27,9 +27,9 @@ function App() {
       case '/tracs':
         setBackgroundImage('https://www.trnty.edu/wp-content/uploads/2019/02/commencement-DSC02734-1.jpg');
         break;
-     /* default:
+      default:
         setBackgroundImage('https://www.trnty.edu/wp-content/uploads/2023/10/troll-HAN06197.jpg');
-        break; */
+        break; 
     } 
   };
 
@@ -55,7 +55,7 @@ function App() {
           <Route path='*' element={<h1>Page Not Found</h1>} />
         </Routes>
       </div>
-      <div className='buttom'>
+      <div className='bottom'>
         <a href="https://www.trnty.edu/" target="_blank"><img src="https://i.vimeocdn.com/portrait/30721683_640x640" alt="Trinity logo" height="150px" width="150px" /></a>
       </div>
     </div>
